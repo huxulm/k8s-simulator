@@ -7,10 +7,10 @@ export default function CKA() {
   const questions = cka.questions["1.31"] as Record<string, string>;
   const seqs = Object.keys(questions);
   const contents = useMemo(() => {
-    return seqs.map((seq) => {
+    return seqs.map((seq, i) => {
       const question = questions[seq];
       return (
-        <div>
+        <div key={`c_${i}`}>
           <h1 className="text-xl font-bold">{`Question ${seq}`}</h1>
           <p>
             <ReactMarkdown className="markdown">{question}</ReactMarkdown>
@@ -51,6 +51,7 @@ export default function CKA() {
           <ul>
             {seqs.map((seq, index) => (
               <li
+                key={`menu_${index}`}
                 className="side-item"
                 onClick={() => setCurrent(contents[index])}
               >{`Question ${seq}`}</li>

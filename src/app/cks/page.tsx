@@ -7,10 +7,10 @@ export default function CKS() {
   const questions = cks.questions["1.31"] as Record<string, string>;
   const seqs = Object.keys(questions);
   const contents = useMemo(() => {
-    return seqs.map((seq) => {
+    return seqs.map((seq, i) => {
       const question = questions[seq];
       return (
-        <div>
+        <div key={`c_${i}`}>
           <h1 className="text-xl font-bold">{`Question ${seq}`}</h1>
           <p>
             <ReactMarkdown className="markdown">{question}</ReactMarkdown>
@@ -28,18 +28,10 @@ export default function CKS() {
       <nav className="top-nav">
         <ul className="nav-list">
           <a className="nav-logo" href="/cka">
-            <img
-              src="/k8s/cka.svg"
-              alt="Next.js logo"
-              className="w-full h-full"
-            />
+            <img src="/k8s/cka.svg" className="w-full h-full" />
           </a>
-          <a className="nav-logo" href="/cka">
-            <img
-              src="/k8s/cka.svg"
-              alt="Next.js logo"
-              className="w-full h-full"
-            />
+          <a className="nav-logo" href="/cks">
+            <img src="/k8s/cks.svg" className="w-full h-full" />
           </a>
           <h3 className="text-blue-600 text-xl font-bold">
             Certified Kubernetes Security Specialist (CKS)
@@ -51,6 +43,7 @@ export default function CKS() {
           <ul>
             {seqs.map((seq, index) => (
               <li
+                key={`menu_${index}`}
                 className="side-item"
                 onClick={() => setCurrent(contents[index])}
               >{`Question ${seq}`}</li>
