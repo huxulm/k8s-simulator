@@ -27,11 +27,11 @@ export default function CKS() {
     <main className="main">
       <nav className="top-nav">
         <ul className="nav-list">
-          <a className="nav-logo" href="/cka">
-            <img src="/k8s/cka.svg" className="w-full h-full" />
+          <a className="nav-logo" href="./cka">
+            <img src="./k8s/cka.svg" className="w-full h-full" />
           </a>
-          <a className="nav-logo" href="/cks">
-            <img src="/k8s/cks.svg" className="w-full h-full" />
+          <a className="nav-logo" href="./cks">
+            <img src="./k8s/cks.svg" className="w-full h-full" />
           </a>
           <h3 className="text-blue-600 text-xl font-bold">
             Certified Kubernetes Security Specialist (CKS)

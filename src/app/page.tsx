@@ -1,5 +1,6 @@
+"use client";
 import Image from "next/image";
-
+import Link from "next/link";
 export default function Home() {
   return (
     <div className="p-2">
@@ -8,12 +9,22 @@ export default function Home() {
           CKA CKAD CKS Simulator Q&A
         </h1>
         <nav className="flex flex-col gap-4 items-start mt-5 sm:flex-row sm:gap-4 sm:mt-20">
-          <a className="logo" href="/cks">
-            <Image src="/k8s/cks.svg" alt="Next.js logo" priority />
-          </a>
-          <a className="logo" href="/cka">
-            <Image src="/k8s/cka.svg" alt="Next.js logo" priority />
-          </a>
+          <Link className="logo" href="/cks">
+            <Image
+              src="/k8s-simulator/k8s/cks.svg"
+              alt="Next.js logo"
+              width={120}
+              height={120}
+            />
+          </Link>
+          <Link className="logo" href="/cka">
+            <Image
+              src="/k8s-simulator/k8s/cka.svg"
+              alt="Next.js logo"
+              width={120}
+              height={120}
+            />
+          </Link>
         </nav>
       </main>
     </div>
