@@ -19,3 +19,124 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer components {
+  * {
+    /* @apply outline-dashed outline-1 outline-offset-2 outline-red-300; */
+  }
+
+  .btn {
+    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+  }
+  .logo {
+    @apply cursor-pointer box-border border-4 border-gray-200 p-[5px] rounded-lg transition-transform duration-200 ease-in-out hover:transform hover:border-4;
+  }
+  .logo img {
+    @apply box-border transition-transform duration-200 ease-in-out scale-90;
+  }
+  .logo img:hover {
+    @apply transform scale-100;
+  }
+
+  .nav-logo {
+    @apply logo w-[72px] h-[72px];
+  }
+
+  .rainbow-border {
+    @apply border-4 border-solid rounded-lg;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(
+      45deg,
+      red,
+      orange,
+      yellow,
+      green,
+      blue,
+      indigo,
+      violet
+    );
+  }
+
+  .main {
+    --top-nav-height: 80px;
+
+    height: 100vh;
+    @apply w-full bg-gray-50;
+  }
+
+  .top-nav {
+    height: var(--top-nav-height);
+    @apply w-full bg-slate-50 shadow flex items-center px-4 gap-2;
+  }
+
+  .nav-list {
+    @apply container mx-auto flex items-center gap-4 px-5;
+  }
+
+  .grid-container {
+    @apply grid mx-auto divide-x divide-gray-300;
+    grid-template-columns: 1fr 3fr 3fr; /* Adjust the ratio as needed */
+    height: calc(100vh - var(--top-nav-height)); /* Full height */
+  }
+
+  .sidebar {
+    @apply bg-gray-100 h-full overflow-y-auto;
+  }
+
+  .sidebar ul {
+    @apply divide-y divide-solid divide-gray-300;
+  }
+
+  .side-item {
+    @apply p-2 bg-white shadow-md font-mono font-bold text-center text-xl text-gray-500 cursor-pointer select-none hover:bg-gray-100;
+  }
+
+  .content {
+    padding: 20px;
+    @apply mx-auto bg-slate-50;
+  }
+
+  /* add react-markdown css */
+  .markdown {
+  }
+
+  .markdown h1 {
+    @apply text-6xl font-bold;
+  }
+
+  .markdown h2 {
+    @apply text-2xl font-bold;
+  }
+
+  .markdown h3 {
+    @apply text-xl font-bold;
+  }
+
+  .markdown p {
+    @apply my-4;
+  }
+
+  .markdown a {
+    @apply text-blue-500 underline;
+  }
+
+  .markdown ul {
+    @apply list-disc list-inside my-4;
+  }
+
+  .markdown ol {
+    @apply list-decimal list-outside my-4 ps-10;
+  }
+
+  .markdown blockquote {
+    @apply border-l-4 border-blue-300 pl-4 italic;
+  }
+
+  .markdown code {
+    @apply bg-stone-100 p-1 rounded text-black break-words break-all;
+  }
+
+  .markdown pre {
+    @apply text-white rounded overflow-x-auto overflow-y-auto;
+  }
+}
