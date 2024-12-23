@@ -44,9 +44,7 @@ export default function CKS() {
       );
     });
   }, [questions]);
-  const [current, setCurrent] = useState(
-    contents ? { id: 0, content: contents[0] } : null
-  );
+  const [current, setCurrent] = useState({ id: 0, content: contents[0] });
   const ref = useRef<HTMLIFrameElement>(null);
   const answer = useMemo(() => {
     return (
@@ -96,7 +94,7 @@ export default function CKS() {
             className="answer"
             onClick={() =>
               scrollToAnswer(
-                `question-${current?.id}-|-${idMaps[current!.id - 1]}`
+                `question-${current.id + 1}-|-${idMaps[current!.id]}`
               )
             }
           >
