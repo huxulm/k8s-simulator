@@ -93,7 +93,15 @@ body {
 
   .content {
     padding: 20px;
-    @apply mx-auto bg-slate-50;
+    @apply mx-auto bg-slate-50 relative;
+  }
+
+  .btn {
+    @apply bg-blue-400 text-white font-bold py-2 px-4 rounded-full hover:bg-blue-500;
+  }
+
+  .answer {
+    @apply btn absolute top-5 right-5;
   }
 
   /* add react-markdown css */
