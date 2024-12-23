@@ -54,7 +54,7 @@ export default function CKS() {
     );
   }, [questions, ref]);
   const scrollToAnswer = (id: string) => {
-    const doc = ref.current?.contentDocument!;
+    const doc = ref.current!.contentDocument!;
     const ele = doc.getElementById(id);
     console.log(id, ele);
     if (ele) ele.scrollIntoView();

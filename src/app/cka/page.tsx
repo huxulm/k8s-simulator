@@ -48,9 +48,7 @@ export default function CKA() {
       );
     });
   }, [questions]);
-  const [current, setCurrent] = useState(
-    contents ? { id: 0, content: contents[0] } : null
-  );
+  const [current, setCurrent] = useState({ id: 0, content: contents[0] });
   const ref = useRef<HTMLIFrameElement>(null);
   const answer = useMemo(() => {
     return (
@@ -58,7 +56,7 @@ export default function CKA() {
     );
   }, [questions, ref]);
   const scrollToAnswer = (id: string) => {
-    const doc = ref.current?.contentDocument!;
+    const doc = ref.current!.contentDocument!;
     const ele = doc.getElementById(id);
     console.log(id, ele);
     if (ele) ele.scrollIntoView();
@@ -102,7 +100,7 @@ export default function CKA() {
             className="answer"
             onClick={() =>
               scrollToAnswer(
-                `question-${current?.id}-|-${idMaps[current!.id - 1]}`
+                `question-${current.id}-|-${idMaps[current.id - 1]}`
               )
             }
           >
@@ -111,14 +109,14 @@ export default function CKA() {
           <div className="absolute bottom-10 flex items-center justify-center w-full gap-5">
             <button
               className="btn"
-              onClick={() => current!.id > 0 && changeQuestion(current!.id - 1)}
+              onClick={() => current.id > 0 && changeQuestion(current.id - 1)}
             >
               Prev
             </button>
             <button
               className="btn"
               onClick={() =>
-                current!.id < seqs.length - 1 && changeQuestion(current!.id + 1)
+                current.id < seqs.length - 1 && changeQuestion(current.id + 1)
               }
             >
               Next
