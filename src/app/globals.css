@@ -129,7 +129,8 @@ body {
   }
 
   .markdown ul {
-    @apply list-disc list-inside my-4;
+    @apply list-disc list-outside my-4;
+    padding-inline-start: 2em;
   }
 
   .markdown ol {
